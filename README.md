@@ -11,7 +11,7 @@ make
 ## Using
 ```
 ./app [url] [regex] [depth] [threads number]
-    [url] - url of page to start crawling in format www.[PAGE].[pl/com/org/...]/[rest of link]
+    [url] - url of page to start crawling
     [regex] - regex of strings to search for
     [depth] - depth of crawling, 0 - crawl only in input page
     [threads number] - number of threads to use
