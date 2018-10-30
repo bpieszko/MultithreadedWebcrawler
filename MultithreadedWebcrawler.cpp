@@ -22,8 +22,10 @@ void MultithreadedWebcrawler::crawl() {
 		std::thread t(&MultithreadedWebcrawler::threadCrawl, this);
 		threads.push_back(std::move(t));
 	}
-	for (int i = 0; i < threads_number; ++i)
-		threads[i].join();
+	for (int i = 0; i < threads_number; ++i) {
+		if (threads[i].joinable())
+			threads[i].join();
+	}
 }
 
 void MultithreadedWebcrawler::threadCrawl() {
