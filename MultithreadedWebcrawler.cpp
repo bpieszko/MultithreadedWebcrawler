@@ -8,6 +8,8 @@ MultithreadedWebcrawler::MultithreadedWebcrawler(const std::string & _start_url,
 	depth = _depth;
 	threads_number = _threads_number;
 	looking_for = 0;
+
+	curl_global_init(CURL_GLOBAL_ALL);
 }
 
 void MultithreadedWebcrawler::crawl() {
