@@ -1,7 +1,7 @@
 # Multithreaded Webcrawler
 
 ## Description
-Multithreaded webcrawler written in C++. It requires url of page to start crawling, regular expression of strings to search fo, depth of recursion in which to look for strings defined by regular expression and number of threads to use.
+Multithreaded webcrawler written in C++. It requires url of page to start crawling, regular expression of strings to search for, depth of recursion in which to look for strings defined by regular expression and number of threads to use.
 
 ## Compile
 ```
