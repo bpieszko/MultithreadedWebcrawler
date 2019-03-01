@@ -1,23 +1,42 @@
 #include <iostream>
-#include "MultithreadedWebcrawler.hpp"
+#include "Crawler.hpp"
+#include "ConfigReader.hpp"
 
-int main (int argc, char * argv[]) {
-	std::cout << argc << std::endl;
-	if (argc != 5) {
-		std::cout << "Usage:" << std::endl;
-		std::cout << "\t./app.e [url] [regex] [depth] [threads number]" << std::endl;
-		std::cout << "Description:" << std::endl;
-		std::cout << "\t[url] - url of page to start crawling" << std::endl;
-		std::cout << "\t[regex] - regex of strings to search for" << std::endl;
-		std::cout << "\t[depth] - depth of crawling (0 - default)" << std::endl;
-		std::cout << "\t[threads number] - number of threads to use" << std::endl;
-		std::cout << "Example:" << std::endl;
-		std::cout << "\t./app.e 'https://panoramafirm.pl/szukaj?k=notariusz' '[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+' 2 4" << std::endl;
-		return 1;
+#define ERROR_RETURN 1
+#define CORRECT_RETURN 0;
+
+const std::string getHelp()
+{
+	return 
+		"Usage:\n"
+		"\t./app.e [config]\n"
+		"Description:\n"
+		"\t[config] - path to config file\n"
+		"Example:\n"
+		"\t./app.e config.cfg";
+}
+
+int main (int argc, char * argv[])
+{
+	if (argc != 2)
+	{
+		std::cout << getHelp() << std::endl;
+		return ERROR_RETURN;
 	}
 
-	MultithreadedWebcrawler mwc(argv[1], argv[2], std::stoi(argv[3]), std::stoi(argv[4]));
-	mwc.crawl();
+	try
+	{
+		Config cfg(argv[1]);
 
-	return 0;
+		Crawler crawler(cfg);
+		crawler.crawl();
+	}
+	catch (std::exception & e)
+	{
+		std::cout << e.what() << std::endl;
+		return ERROR_RETURN;
+	}
+	
+
+	return CORRECT_RETURN;
 }
