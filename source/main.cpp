@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Crawler.hpp"
-#include "ConfigReader.hpp"
+#include "Config.hpp"
 
 #define ERROR_RETURN 1
 #define CORRECT_RETURN 0;
