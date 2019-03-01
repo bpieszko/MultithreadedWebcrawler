@@ -3,7 +3,7 @@
 #include "Config.hpp"
 
 #define ERROR_RETURN 1
-#define CORRECT_RETURN 0;
+#define CORRECT_RETURN 0
 
 const std::string getHelp()
 {
