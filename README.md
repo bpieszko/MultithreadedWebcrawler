@@ -3,6 +3,12 @@
 ## Description
 Multithreaded webcrawler written in C++. It requires url of page to start crawling, regular expression of strings to search for, depth of recursion in which to look for strings defined by regular expression and number of threads to use.
 
+## Dependencies
+```
+libcurl
+C++ in version at least 14
+```
+
 ## Compile
 ```
 cd MultithreadedWebcrawler
